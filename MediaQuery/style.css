@@ -1,0 +1,51 @@
+/* Style de base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.box {
+    background-color: lightblue;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    margin: 10px auto;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease; /* Effet de transition pour les changements */
+}
+
+/* Écran large : Plus de 1024px */
+@media (min-width: 1025px) {
+    .box {
+        background-color: lightgreen;
+        color: white;
+        width: 300px;
+    }
+}
+
+/* Écran moyen : Entre 768px et 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .box {
+        background-color: lightcoral;
+        color: white;
+        width: 250px;
+    }
+}
+
+/* Écran étroit : Moins de 768px */
+@media (max-width: 767px) {
+    .box {
+        background-color: lightgoldenrodyellow;
+        color: #333;
+        width: 80%;
+        max-width: 350px;
+    }
+}
