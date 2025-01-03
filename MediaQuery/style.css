@@ -1,6 +1,6 @@
 /* Style de base */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     margin: 0;
     padding: 0;
 }
@@ -19,7 +19,6 @@ body {
     margin: 10px auto;
     padding: 20px;
     text-align: center;
-    transition: all 0.3s ease; /* Effet de transition pour les changements */
 }
 
 /* Écran large : Plus de 1024px */
@@ -27,7 +26,7 @@ body {
     .box {
         background-color: lightgreen;
         color: white;
-        width: 300px;
+        width: 90%;
     }
 }
 
@@ -36,7 +35,7 @@ body {
     .box {
         background-color: lightcoral;
         color: white;
-        width: 250px;
+        width: 70%;
     }
 }
 
@@ -47,5 +46,6 @@ body {
         color: #333;
         width: 80%;
         max-width: 350px;
+        display: none;
     }
 }
