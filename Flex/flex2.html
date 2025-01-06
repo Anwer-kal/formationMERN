@@ -22,6 +22,7 @@
         main {
             display: flex;
             height: 100%;
+            flex-direction: row;
         }
 
         nav {
@@ -31,6 +32,10 @@
         article {
             flex: 1;
             background: #ffd54f;
+        }
+        .style_article{
+            flex: 1;
+            background-color: red;
         }
 
         aside {
@@ -58,6 +63,8 @@
     <nav>Navigation</nav>
     <main>
         <article>Article</article>
+        <article>article1</article>
+        <article class="style_article" >article2</article>
         <aside>Aside</aside>
     </main>
     <footer>Footer</footer>
