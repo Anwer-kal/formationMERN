@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>JavaScript intégré</title>
+</head>
+
+<body>
+    <h1>Bonjour JavaScript</h1>
+    <script>
+        const fetchData = async () => {
+            try {
+                const resultat = await new Promise((resolve) => {
+                    setTimeout(() => resolve("Données récupérées !"), 2000);
+                });
+                console.log(resultat); // Affiche "Données récupérées !" après 2 secondes
+            } catch (erreur) {
+                console.error(erreur);
+            }
+        };
+
+        fetchData();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Flexbox wrap 1 — wrapping our content to new rows</title>
+    <style>
+        header {
+            background: purple;
+            height: 100px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            margin: 0;
+        }
+
+        article {
+            padding: 10px;
+            margin: 10px;
+            background: aqua;
+        }
+
+        /* Add your flexbox CSS below here */
+
+        div {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        article {
+            flex: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Sample flexbox example</h1>
+    </header>
+    <div>
+        <article>
+            <h2>Article 1</h2>
+        </article>
+        <article>
+            <h2>Article 2</h2>
+        </article>
+        <article>
+            <h2>Article 3</h2>
+        </article>
+        <article>
+            <h2>Article 4</h2>
+        </article>
+        <article>
+            <h2>Article 5</h2>
+        </article>
+        <article>
+            <h2>Article 6</h2>
+        </article>
+
+    </div>
+</body>
+
+</html>
