@@ -9,7 +9,6 @@ const ChildComponent = ({name, surName, email}) => {
      <h2>email: {email}!</h2>
      <br></br>
      <hr></hr>
-
     </>
   );
 };

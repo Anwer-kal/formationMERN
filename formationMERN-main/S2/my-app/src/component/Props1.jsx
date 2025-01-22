@@ -5,13 +5,13 @@ const MyComponent = ({ name, age, phone }) => {
     <div>
       <p>Name: {name}</p>
       <p>Age: {age}</p>
-      {phone ? <p>phone: {phone}</p> : <></>} 
+      {phone ? <p>phone: {phone}</p> : <></>}
     </div>
   );
 };
 
 // Validation des types des props
-MyComponent.propTypes = {
+MyComponent.PropTypes = {
   name: PropTypes.string.isRequired,
   age: PropTypes.number.isRequired,
   phone: PropTypes.number,
