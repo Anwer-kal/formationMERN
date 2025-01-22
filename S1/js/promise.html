@@ -8,18 +8,30 @@
 <body>
     <h1>Bonjour JavaScript</h1>
     <script>
-        const fetchData = async () => {
-            try {
-                const resultat = await new Promise((resolve) => {
-                    setTimeout(() => resolve("Données récupérées !"), 2000);
-                });
-                console.log(resultat); // Affiche "Données récupérées !" après 2 secondes
-            } catch (erreur) {
-                console.error(erreur);
-            }
-        };
+const maPromise = new Promise((resolve, reject) => {
+  const apiUrl = 'https://jsonplaceholder.typicode.com/posts/2';
+fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        reject("Erreur dans la requête API !");
+      }
+      return response.json(); 
+    })
+    .then(data => {
+      resolve(`Opération réussie ! Voici les données: ${JSON.stringify(data)}`);
+    })
+    .catch(error => {
+      reject(`Erreur dans l'opération : ${error}`);
+    });
+});
+maPromise
+  .then(resultat => {
+    console.log(resultat); 
+  })
+  .catch(erreur => {
+    console.log(erreur); 
+  });
 
-        fetchData();
     </script>
 </body>
 
