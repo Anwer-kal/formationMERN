@@ -1,0 +1,11 @@
+div{
+    margin: 0px;
+    padding: 0px;
+    background-color: gray;
+    width: 650px;
+    display: flex;
+    flex-direction: column;
+}
+th,td{
+    background-color: bisque;
+}
