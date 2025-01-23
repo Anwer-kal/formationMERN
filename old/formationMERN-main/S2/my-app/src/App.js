@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Component1 name="aa" surName="bb" email="cc"/>
       <Component2 name="AA" surName="BB" email="CC"/>
-      <Props1 name='makrem' age="aa"/>
+      <Props1 name='makrem' age="aa" phone="12345678" />
     </div>
   );
 }
