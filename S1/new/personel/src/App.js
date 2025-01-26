@@ -28,18 +28,17 @@ function App() {
       <About pro="developper" inter="AI" />
       <Experience 
         title="DataDoit" 
-        img="../assets/datadoit.jpg" 
+        img="images/datadoit.jpg" 
         Role="Software Developer" 
         Desc="Worked on developing innovative software solutions for small businesses." 
       />
       <Experience 
-        title="Samsung" 
-        img="../assets/images.png" 
+        title="images/Samsung" 
+        img="images.png" 
         Role="Software Developer" 
         Desc="Worked on developing innovative software solutions for small businesses." 
       />
       <Projects />
-      {/* Pass skillsData to Skills component */}
       <Skills skillsData={skillsData} />
       <Contact name="makremmhiri290" mail="gmail"/>
       <Footer name="Makrem Mhiri"/>
