@@ -15,8 +15,13 @@ function App() {
 
 
      <Propos1  name="Salem" surName="Kalghoum"  email='anwer@gmail.com'/>
+     <Propos1  name="ded" surName="Kalghoum"  email='anwer@gmail.com'/>
+     <Propos1  name="ff" surName="Kalghoum"  email='anwer@gmail.com'/>
+     <Propos1  name="gtg" surName="Kalghoum"  email='anwer@gmail.com'/>
+     <Propos1  name="gthy" surName="Kalghoum"  email='anwer@gmail.com'/>
+
      <Propos2  name="dede" surName="Kalghoum"  email='anwer@gmail.com'/>
-     <PropoType name='ali' age={6} phone={454545445}></PropoType>
+     <PropoType name='ali' age={"6fff"} phone={454545445}></PropoType>
 
 
     </div>
