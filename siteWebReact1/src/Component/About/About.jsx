@@ -10,7 +10,7 @@ function About(props) {
             <div className="about-container">
               <br></br>
                 <img src={props.picture} alt="Your profile pict" className="profile-picture" />
-                <p>I am a [Your Profession] with a passion for [Your Interests].</p>
+                <p>{props.description}.</p>
             </div>
         </section>
 

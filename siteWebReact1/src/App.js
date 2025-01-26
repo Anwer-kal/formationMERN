@@ -19,7 +19,7 @@ function App() {
     <div className="App">
        <Nav item={item}/>
        <Hero name='Anwer kalghoum' description={'Welcome to my portfolio website'} />
-       <About picture={picture1} ></About>
+       <About picture={picture1} description="I am a fullstack with a passion for react , nodejs" ></About>
     </div>
   );
 }
