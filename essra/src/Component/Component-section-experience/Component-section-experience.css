@@ -1,0 +1,21 @@
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.experience-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem auto;
+    background-color: #fff;
+    max-width: 600px;
+    text-align: left;
+    gap: 1rem;
+}
