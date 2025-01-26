@@ -63,7 +63,7 @@ section {
 .experience-card {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 1rem;
@@ -72,20 +72,58 @@ section {
     max-width: 600px;
     text-align: left;
     gap: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.experience-card img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.experience-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.experience-card p {
+    margin: 0.3rem 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.experience-card div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .project-card {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column; 
+    align-items: flex-start;
+    justify-content: flex-start;
     border: 1px solid #ccc;
     border-radius: 10px;
-    padding: 1rem;
-    margin: 1rem auto;
+    padding: 1.5rem;
+    margin: 1.5rem auto;
     background-color: #fff;
     max-width: 600px;
     text-align: left;
     gap: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.project-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: #555;
 }
 
 .skills-container {
