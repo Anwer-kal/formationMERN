@@ -4,21 +4,29 @@ const FormComponent = () => {
     // État pour gérer les données du formulaire
     const [formData, setFormData] = useState({
         name: "",
-    }); 
-    
+        surName: "",
+        city: ''
+    });
+
+    const [message, setMessage] = useState('');
+
     // Fonction pour mettre à jour les champs du formulaire
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const { name, surName, city, value } = event.target;
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
+            [surName]: value,
+            [city]: value
         }));
-    }; 
-    
-    // Fonction pour gérer la soumission du formulaire
+    };
+
+    // Fonction pour gérer la soumission du formulaire 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(`Form submitted: Name: ${formData.name} `);
+        // BACKEND
+        setMessage(`Form submitted: Name: ${formData.name},   SurName: ${formData.surName} ,   City: ${formData.city}`)
+        alert(`Form submitted: Name: ${formData.name},   SurName: ${formData.surName} ,   City: ${formData.city}`);
     };
 
     return (
@@ -36,10 +44,31 @@ const FormComponent = () => {
                         value={formData.name}
                         onChange={handleChange} // Met à jour le champ 'name'
                     />
+                    <br />
+                    <label htmlFor="surName">SurName:</label>
+
+                    <input
+                        type="text"
+                        id="surName"
+                        name="surName"
+                        value={formData.surName}
+                        onChange={handleChange} // Met à jour le champ 'name'
+                    />
+                    <br></br>
+                    <label htmlFor="city">City:</label>
+
+                    <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        value={formData.city}
+                        onChange={handleChange} // Met à jour le champ 'name'
+                    />
                     {" "}
                 </div>
                 <button type="submit">Submit</button>{" "}
             </form>
+            <p>{message}</p>
             {" "}
         </div>
     );
