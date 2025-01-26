@@ -4,7 +4,7 @@ function Hero(props) {
 
 <header>
 
-        <div class="hero">
+        <div className="hero">
             <h1>Hello, I'm {props.name}</h1>
             <p>{props.description}</p>
         </div>

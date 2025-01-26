@@ -9,7 +9,7 @@ function Nav(props) {
                  {props.item.map(
                     (e, index)=>{
                         console.log(e)
-                        return <li><a href="#about">{e.title}</a></li>
+                        return <li key={e.id}><a href="#about">{e.title}</a></li>
                     }
                  )}
             
