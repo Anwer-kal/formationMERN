@@ -1,25 +1,22 @@
+import { Button, Card, Col, Input, Layout, Row, Space, Typography } from 'antd';
 import React, { useState } from 'react';
-import { Layout, Card, Col, Row, Button, Input, Space } from 'antd';
-import { useDrag, useDrop } from 'react-dnd';
-import { v4 as uuidv4 } from 'uuid';
-import { DndProvider } from 'react-dnd';
+import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { v4 as uuidv4 } from 'uuid';
 
-// Déstructure Layout d'Ant Design
 const { Header, Content } = Layout;
+const { Title, Text } = Typography;
 
-// Composant représentant une colonne de tâches (par exemple : À Faire, En Cours, Terminé)
+// Task Column Component
 const TaskColumn = ({ title, tasks, moveTask, columnId }) => {
-  // Utilisation du hook `useDrop` de React DnD pour rendre cette colonne "droppable"
   const [, drop] = useDrop({
-    accept: 'TASK', // Indique que ce composant accepte les éléments de type 'TASK'
-    drop: (item) => moveTask(item.id, columnId), // Lorsqu'un élément est déposé, il appelle `moveTask` pour le déplacer
+    accept: 'TASK',
+    drop: (item) => moveTask(item.id, columnId),
   });
 
   return (
-    <Col xs={24} sm={12} md={8} ref={drop} style={{ margin: '0 0px' }}>
-      <Card title={title} style={{ minHeight: '200px' }}>
-        {/* Affichage de chaque tâche de cette colonne */}
+    <Col xs={24} sm={12} md={8} ref={drop} style={{ padding: '10px' }}>
+      <Card title={title} style={{ minHeight: '300px', background: '#f8f9fa' }}>
         {tasks.map((task) => (
           <TaskCard key={task.id} task={task} moveTask={moveTask} columnId={columnId} />
         ))}
@@ -28,72 +25,113 @@ const TaskColumn = ({ title, tasks, moveTask, columnId }) => {
   );
 };
 
-// Composant représentant une tâche individuelle dans une colonne
-const TaskCard = ({ task, moveTask, columnId }) => {
-  // Utilisation du hook `useDrag` de React DnD pour rendre chaque tâche "draggable"
+// Task Card Component (Draggable)
+const TaskCard = ({ task, moveTask }) => {
   const [, drag] = useDrag({
-    type: 'TASK', // Le type d'élément à déplacer est 'TASK'
-    item: { id: task.id }, // L'élément contient l'id de la tâche à déplacer
+    type: 'TASK',
+    item: { id: task.id },
   });
 
   return (
-    <div
-      ref={drag} // Référence pour activer la fonctionnalité de drag
-      style={{ margin: '10px 0', padding: '10px', border: '1px solid #ddd', borderRadius: '4px' }}
+    <Card
+      ref={drag}
+      style={{
+        margin: '10px 0',
+        padding: '10px',
+        border: '1px solid #ddd',
+        borderRadius: '8px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '10px',
+      }}
     >
-      {/* Affichage du nom de la tâche */}
-      {task.name}
-    </div>
+      <img
+        src={task.imageUrl}
+        alt="User"
+        style={{
+          width: '50px',
+          height: '50px',
+          borderRadius: '50%',
+          objectFit: 'cover',
+        }}
+      />
+      <div>
+        <Title level={5} style={{ margin: 0 }}>
+          {task.name}
+        </Title>
+        <Text type="secondary">{task.date}</Text>
+        <p style={{ margin: '5px 0' }}>{task.description}</p>
+      </div>
+    </Card>
   );
 };
 
-// Composant principal de l'application
+// Main Task Management Component
 const TaskManagementApp = () => {
-  // Initialisation des tâches avec `useState`
   const [tasks, setTasks] = useState([
-    { id: uuidv4(), name: 'Task 1: Buy groceries', columnId: 'todo' },
-    { id: uuidv4(), name: 'Task 2: Complete project', columnId: 'todo' },
-    { id: uuidv4(), name: 'Task 3: Call the bank', columnId: 'inProgress' },
-    { id: uuidv4(), name: 'Task 4: projet react 1 - Makrem', columnId: 'todo' },
-    { id: uuidv4(), name: 'Task 5: projet react 2 - Salma', columnId: 'todo' },
-    { id: uuidv4(), name: 'Task 6: projet react 3 Essra', columnId: 'todo' },
-    { id: uuidv4(), name: 'Task 7: projet react 4 Malek ', columnId: 'todo' },
-    { id: uuidv4(), name: 'Task 8: projet react 5 Aziz', columnId: 'todo' },
-    { id: uuidv4(), name: 'Task 9: projet react 6 reaf', columnId: 'todo' },
-    { id: uuidv4(), name: 'Task 10: projet react 7', columnId: 'todo' },
-    { id: uuidv4(), name: 'Task 11: projet react 8', columnId: 'todo' },
+    {
+      id: uuidv4(),
+      name: 'Makrem - Design React App',
+      columnId: 'todo',
+      description: 'Build a front-end design for the project.',
+      date: '2025-02-01',
+      imageUrl: 'https://randomuser.me/api/portraits/men/1.jpg',
+    },
+    {
+      id: uuidv4(),
+      name: 'Salma - API Development',
+      columnId: 'todo',
+      description: 'Develop the backend API using Node.js.',
+      date: '2025-02-03',
+      imageUrl: 'https://randomuser.me/api/portraits/women/2.jpg',
+    },
+    {
+      id: uuidv4(),
+      name: 'Aziz - Database Setup',
+      columnId: 'inProgress',
+      description: 'Set up and optimize the database schema.',
+      date: '2025-02-02',
+      imageUrl: 'https://randomuser.me/api/portraits/men/3.jpg',
+    },
   ]);
-  
-  const [taskName, setTaskName] = useState(''); // État pour le nom de la nouvelle tâche
 
-  // Fonction pour ajouter une nouvelle tâche
+  const [taskName, setTaskName] = useState('');
+  const [taskDescription, setTaskDescription] = useState('');
+  const [taskDate, setTaskDate] = useState('');
+  const [taskImage, setTaskImage] = useState('');
+
+  // Add a new task
   const addTask = () => {
-    if (taskName.trim() === '') return; // Empêche d'ajouter une tâche vide
+    if (taskName.trim() === '') return;
 
     const newTask = {
-      id: uuidv4(), // Génération d'un id unique pour la nouvelle tâche
-      name: taskName, // Nom de la tâche provenant de l'input
-      columnId: 'todo', // Par défaut, la tâche est ajoutée dans la colonne "À faire"
+      id: uuidv4(),
+      name: taskName,
+      columnId: 'todo',
+      description: taskDescription,
+      date: taskDate,
+      imageUrl: taskImage || 'https://randomuser.me/api/portraits/lego/1.jpg', // Default image
     };
 
-    // Mise à jour de l'état des tâches avec la nouvelle tâche ajoutée
     setTasks([...tasks, newTask]);
-    setTaskName(''); // Réinitialisation du champ de saisie
+    setTaskName('');
+    setTaskDescription('');
+    setTaskDate('');
+    setTaskImage('');
   };
 
-  // Fonction pour déplacer une tâche d'une colonne à une autre
+  // Move Task between columns
   const moveTask = (taskId, targetColumnId) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
-        task.id === taskId ? { ...task, columnId: targetColumnId } : task // Met à jour la colonne de la tâche
+        task.id === taskId ? { ...task, columnId: targetColumnId } : task
       )
     );
   };
 
-  // Colonnes disponibles dans l'application
+  // Columns
   const columns = ['todo', 'inProgress', 'done'];
 
-  // Filtrage des tâches pour les organiser par colonne
   const tasksByColumn = {
     todo: tasks.filter((task) => task.columnId === 'todo'),
     inProgress: tasks.filter((task) => task.columnId === 'inProgress'),
@@ -102,22 +140,35 @@ const TaskManagementApp = () => {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      {/* En-tête de l'application */}
       <Header style={{ color: 'white', fontSize: '24px', textAlign: 'center' }}>
         Task Management App with Drag and Drop
       </Header>
-      
+
       <Content style={{ padding: '20px' }}>
         <Row gutter={16}>
-          <Col span={12}>
+          <Col span={24}>
             <Space>
-              {/* Champ de saisie pour ajouter une nouvelle tâche */}
               <Input
                 value={taskName}
-                onChange={(e) => setTaskName(e.target.value)} // Met à jour le nom de la tâche
+                onChange={(e) => setTaskName(e.target.value)}
                 placeholder="Enter task name"
               />
-              {/* Bouton pour ajouter la nouvelle tâche */}
+              <Input
+                value={taskDescription}
+                onChange={(e) => setTaskDescription(e.target.value)}
+                placeholder="Enter task description"
+              />
+              <Input
+                type="date"
+                value={taskDate}
+                onChange={(e) => setTaskDate(e.target.value)}
+                placeholder="Enter due date"
+              />
+              <Input
+                value={taskImage}
+                onChange={(e) => setTaskImage(e.target.value)}
+                placeholder="Enter image URL"
+              />
               <Button type="primary" onClick={addTask}>
                 Add Task
               </Button>
@@ -125,15 +176,14 @@ const TaskManagementApp = () => {
           </Col>
         </Row>
 
-        {/* Affichage des colonnes avec les tâches */}
         <Row gutter={24} style={{ marginTop: '20px' }}>
           {columns.map((columnId) => (
             <TaskColumn
               key={columnId}
-              title={columnId === 'todo' ? 'À Faire' : columnId === 'inProgress' ? 'En Cours' : 'Terminé'}
-              tasks={tasksByColumn[columnId]} // Passe les tâches filtrées pour chaque colonne
-              moveTask={moveTask} // Passe la fonction pour déplacer une tâche
-              columnId={columnId} // Passe l'id de la colonne
+              title={columnId === 'todo' ? 'To Do' : columnId === 'inProgress' ? 'In Progress' : 'Done'}
+              tasks={tasksByColumn[columnId]}
+              moveTask={moveTask}
+              columnId={columnId}
             />
           ))}
         </Row>
@@ -142,10 +192,10 @@ const TaskManagementApp = () => {
   );
 };
 
-// Composant racine de l'application avec le provider DnD
+// App with Drag-and-Drop Provider
 const App = () => (
   <DndProvider backend={HTML5Backend}>
-    <TaskManagementApp /> {/* Affiche le composant principal */}
+    <TaskManagementApp />
   </DndProvider>
 );
 
