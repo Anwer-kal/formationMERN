@@ -1,10 +1,10 @@
 import './App.css';
-import ModalExample from './Component/Antd/AntdModal/AntdModal'
+import TaskManagement from "./Component/taskmanagement/Taskmanagement.jsx"
 function App() {
   return (
-    <div className="App">
-      <ModalExample />
-    </div>
+<>
+<TaskManagement></TaskManagement>
+  </>
   );
 }
 

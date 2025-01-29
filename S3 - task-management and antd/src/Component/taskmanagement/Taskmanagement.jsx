@@ -54,7 +54,14 @@ const TaskManagementApp = () => {
     { id: uuidv4(), name: 'Task 1: Buy groceries', columnId: 'todo' },
     { id: uuidv4(), name: 'Task 2: Complete project', columnId: 'todo' },
     { id: uuidv4(), name: 'Task 3: Call the bank', columnId: 'inProgress' },
-    { id: uuidv4(), name: 'Task 4: Write blog post', columnId: 'done' },
+    { id: uuidv4(), name: 'Task 4: projet react 1 - Makrem', columnId: 'todo' },
+    { id: uuidv4(), name: 'Task 5: projet react 2 - Salma', columnId: 'todo' },
+    { id: uuidv4(), name: 'Task 6: projet react 3 Essra', columnId: 'todo' },
+    { id: uuidv4(), name: 'Task 7: projet react 4 Malek ', columnId: 'todo' },
+    { id: uuidv4(), name: 'Task 8: projet react 5 Aziz', columnId: 'todo' },
+    { id: uuidv4(), name: 'Task 9: projet react 6 reaf', columnId: 'todo' },
+    { id: uuidv4(), name: 'Task 10: projet react 7', columnId: 'todo' },
+    { id: uuidv4(), name: 'Task 11: projet react 8', columnId: 'todo' },
   ]);
   
   const [taskName, setTaskName] = useState(''); // État pour le nom de la nouvelle tâche
