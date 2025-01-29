@@ -6,7 +6,6 @@ const MyComponent = ({ name, age, phone }) => {
       <p>Name: {name}</p>
       <p>Age: {age}</p>
       {phone ? <p>phone: {phone}</p> : <></>} 
-      <hr></hr>
     </div>
   );
 };

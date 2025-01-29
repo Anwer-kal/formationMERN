@@ -28,7 +28,7 @@ const AntdForm = () => {
         <Form.Item
           label="Name"
           name="name"
-          rules={[{  message: 'Please input your name!' }]}
+          rules={[{ required: true, message: 'Please input your name!' }]}
         >
           <Input
             value={formData.name}

@@ -50,13 +50,14 @@ const TaskCard = ({ task, moveTask, columnId }) => {
 // Composant principal de l'application
 const TaskManagementApp = () => {
   // Initialisation des tâches avec `useState`
+    //name  title  urlImg  priority  responsible  columnId
   const [tasks, setTasks] = useState([
-    { id: uuidv4(), name: 'Task 1: Buy groceries', columnId: 'todo' },
-    { id: uuidv4(), name: 'Task 2: Complete project', columnId: 'todo' },
-    { id: uuidv4(), name: 'Task 3: Call the bank', columnId: 'inProgress' },
-    { id: uuidv4(), name: 'Task 4: Write blog post', columnId: 'done' },
+    { id: uuidv4(), name: 'Task 1: Set up project repo', title: 'Initialize GitHub Repository', urlImg: 'https://example.com/github.jpg', priority: 'high', responsible: 'Alice Johnson', columnId: 'todo' },
+    { id: uuidv4(), name: 'Task 2: Design database schema', title: 'Database Schema Design', urlImg: 'https://example.com/database.jpg', priority: 'high', responsible: 'Bob Smith', columnId: 'todo' },
+    { id: uuidv4(), name: 'Task 3: Build authentication system', title: 'User Authentication', urlImg: 'https://example.com/auth.jpg', priority: 'high', responsible: 'Charlie Davis', columnId: 'inProgress' },
+    { id: uuidv4(), name: 'Task 4: Develop REST API endpoints', title: 'Backend API Development', urlImg: 'https://example.com/api.jpg', priority: 'high', responsible: 'David Martinez', columnId: 'inProgress' },
+    { id: uuidv4(), name: 'Task 7: Test application functionality', title: 'Application Testing', urlImg: 'https://example.com/testing.jpg', priority: 'high', responsible: 'Grace Kim', columnId: 'done' },
   ]);
-  
   const [taskName, setTaskName] = useState(''); // État pour le nom de la nouvelle tâche
 
   // Fonction pour ajouter une nouvelle tâche
@@ -64,9 +65,13 @@ const TaskManagementApp = () => {
     if (taskName.trim() === '') return; // Empêche d'ajouter une tâche vide
 
     const newTask = {
-      id: uuidv4(), // Génération d'un id unique pour la nouvelle tâche
-      name: taskName, // Nom de la tâche provenant de l'input
-      columnId: 'todo', // Par défaut, la tâche est ajoutée dans la colonne "À faire"
+      id: uuidv4(),
+      name: taskName,
+      title: taskName,
+      urlImg: 'https://example.com/default.jpg',
+      priority: 'low',
+      responsible: 'Unassigned',
+      columnId: 'todo'
     };
 
     // Mise à jour de l'état des tâches avec la nouvelle tâche ajoutée
@@ -124,10 +129,12 @@ const TaskManagementApp = () => {
             <TaskColumn
               key={columnId}
               title={columnId === 'todo' ? 'À Faire' : columnId === 'inProgress' ? 'En Cours' : 'Terminé'}
+              priority={columnId.priority}
               tasks={tasksByColumn[columnId]} // Passe les tâches filtrées pour chaque colonne
               moveTask={moveTask} // Passe la fonction pour déplacer une tâche
               columnId={columnId} // Passe l'id de la colonne
             />
+            //name  title  urlImg  priority  responsible  columnId
           ))}
         </Row>
       </Content>

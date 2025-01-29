@@ -5,7 +5,9 @@ import  Propos1  from './Component/Propos1.jsx';
 import  Propos2  from './Component/Propos2.jsx';
 import  PropoType  from './Component/ComponentPropoType.jsx';
 import  Compo from './Component/Compo.jsx';
-
+import  State from './Component/State.jsx';
+import  OnClick from './Component/OnClick.jsx';
+import  OnSubmit from './Component/OnSubmit.jsx';
 
 function App() {
   return (
@@ -15,8 +17,9 @@ function App() {
 
      <Propos1  name="Salem" surName="Kalghoum"  email='anwer@gmail.com'/>
      <Propos2  name="dede" surName="Kalghoum"  email='anwer@gmail.com'/>
-     <PropoType name='ali' age={6} phone={454545445}/> */}
-     <Compo name='makrem' age={21} phone={484848484} address="ccccc.fr" pays="tunis"/>
+     <PropoType name='ali' age={6} phone={454545445}/> 
+     <Compo name='makrem' age={21} phone={484848484} address="ccccc.fr" pays="tunis"/>*/}
+     <OnSubmit/>
     </div>
   );
 }
