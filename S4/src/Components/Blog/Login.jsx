@@ -1,6 +1,6 @@
+import { Button, Form, Input, message } from "antd";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Input, Button, Form, message } from "antd";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -17,7 +17,7 @@ function Login() {
 
       message.success("Connexion réussie !");
       // Rediriger vers la page d'accueil ou une page protégée
-      navigate("/");
+      navigate("/protected");
     } else {
       message.error("Nom d'utilisateur ou mot de passe incorrect !");
     }

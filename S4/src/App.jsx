@@ -18,7 +18,7 @@ import './App.css';
 //import CardComponentExemple from './Components/StyledComponent/DynamicPictureProps/CardComponentExemple.jsx';
 //import GlobalStyleIndex from './Components/StyledComponent/GlobalStyleExemple/GlobalStyleIndex.jsx';
 
- import Blog from './Components/Blog/Main.jsx'
+import Blog from './Components/Blog/Main.jsx';
 function App() {
   return (
     <div className="App">

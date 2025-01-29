@@ -1,12 +1,12 @@
+import { Button, Layout, Menu } from "antd";
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, Link } from "react-router-dom";
-import { Layout, Menu, Button } from "antd";
-import Home from "./Home";
-import Login from "./Login";
-import UserProfile from "./UserProfile";
+import { Link, Navigate, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AdminDashboard from "./AdminDashboard";
 import AdminSettings from "./AdminSettings";
+import Home from "./Home";
+import Login from "./Login";
 import Unauthorized from "./Unauthorized";
+import UserProfile from "./UserProfile";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -60,12 +60,6 @@ function Bloc() {
             </Menu.Item>
             <Menu.Item key="userProfile">
               <Link to="/user/profile">Profil Utilisateur</Link>
-            </Menu.Item>
-            <Menu.Item key="adminDashboard">
-              <Link to="/admin/dashboard">Tableau de bord Administrateur</Link>
-            </Menu.Item>
-            <Menu.Item key="adminSettings">
-              <Link to="/admin/settings">Paramètres Administrateur</Link>
             </Menu.Item>
 
             {/* Bouton de déconnexion */}

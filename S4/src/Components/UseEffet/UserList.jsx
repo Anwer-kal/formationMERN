@@ -1,19 +1,35 @@
+import { Table } from 'antd'; // Import Table & Spin from Ant Design
 import React from 'react';
 import useFetch from '../CustomHooks/UseFetch.jsx';
 
 function UserList() {
-  const { data: users, loading, error } = useFetch('https://jsonplaceholder.typicode.com/users');
+  const { data, loading, error } = useFetch('https://jsonplaceholder.typicode.com/users');
 
-  if (loading) return <p>Chargement...</p>;
-  if (error) return <p>Erreur : {error}</p>;
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      sorter: (a, b) => a.name.localeCompare(b.name), // Alphabetical sorting
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email',
+      sorter: (a, b) => a.name.localeCompare(b.name), // Alphabetical sorting
+    },
+    {
+      title: 'Phone',
+      dataIndex: 'phone',
+      key: 'phone',
+      sorter: (a, b) => a.name.localeCompare(b.name), // Alphabetical sorting
+    },
+  ];
 
   return (
-    <ul>
-      {users.map((user) => (
-        <li key={user.id}>{user.name}</li>
-      ))}
-    </ul>
+    
+    <Table dataSource={data} columns={columns} />
   );
-}
+}  
 
 export default UserList;
