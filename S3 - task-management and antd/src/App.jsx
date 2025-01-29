@@ -1,11 +1,15 @@
-import './App.css';
-import ModalExample from './Component/Antd/AntdModal/AntdModal'
-function App() {
+import React, { useState } from 'react';
+
+import  Taskmanagement from './Component/taskmanagement/Taskmanagement'
+
+const App = () => {
+  
+
   return (
-    <div className="App">
-      <ModalExample />
+    <div>
+      <Taskmanagement/>
     </div>
   );
-}
+};
 
 export default App;
