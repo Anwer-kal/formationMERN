@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+main {
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.experience-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem auto;
+    background-color: #fff;
+    max-width: 600px;
+    text-align: left;
+    gap: 1rem;
+}
+
+.project-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem auto;
+    background-color: #fff;
+    max-width: 600px;
+    text-align: left;
+    gap: 1rem;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.skill {
+    text-align: center;
+    max-width: 120px;
+}
+
+.skill img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.skill img:hover {
+    transform: scale(1.1);
+}
+
+.skill p {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+.techSol{
+    height: 100px;
+    width: 200px;
+}
+h2{
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    color: rgb(79, 165, 136);
+}
