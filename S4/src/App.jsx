@@ -10,18 +10,23 @@ import './App.css';
 // import NotFound from './Components/Router/404.jsx'
 // import Protection from './Components/Router/RouterProtection.jsx'
 // import FullExemple from './Components/Exemple/Exemple.jsx'
-
-//import Styled1 from './Components/StyledComponent/Styled1.jsx'
-//import Styled2 from './Components/StyledComponent/Styled2.jsx'
-//import Styled3 from './Components/StyledComponent/Styled3.jsx'
-//import Styled4 from './Components/StyledComponent/Styled4.jsx'
-//import CardComponentExemple from './Components/StyledComponent/DynamicPictureProps/CardComponentExemple.jsx';
-//import GlobalStyleIndex from './Components/StyledComponent/GlobalStyleExemple/GlobalStyleIndex.jsx';
-
+// import Styled1 from './Components/StyledComponent/Styled1.jsx'
+// import Styled2 from './Components/StyledComponent/Styled2.jsx'
+// import Styled3 from './Components/StyledComponent/Styled3.jsx'
+// import Styled4 from './Components/StyledComponent/Styled4.jsx'
+// import CardComponentExemple from './Components/StyledComponent/DynamicPictureProps/CardComponentExemple.jsx';
+// import GlobalStyleIndex from './Components/StyledComponent/GlobalStyleExemple/GlobalStyleIndex.jsx';
  import Blog from './Components/Blog/Main.jsx'
 function App() {
   return (
     <div className="App">
+      <Blog/>
+    </div>
+  );
+}
+
+export default App;
+
 {/* <Component1 />
 <Counter />
 <Users></Users>
@@ -43,12 +48,5 @@ UserListCustomHooks
           text="Carte Dynamique"
         />
 <GlobalStyleIndex></GlobalStyleIndex>
-
-*/}
 <Blog></Blog>
-
-    </div>
-  );
-}
-
-export default App;
+*/}
