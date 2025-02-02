@@ -17,8 +17,8 @@ import './App.css';
 //import Styled4 from './Components/StyledComponent/Styled4.jsx'
 //import CardComponentExemple from './Components/StyledComponent/DynamicPictureProps/CardComponentExemple.jsx';
 //import GlobalStyleIndex from './Components/StyledComponent/GlobalStyleExemple/GlobalStyleIndex.jsx';
-
- import Blog from './Components/Blog/Main.jsx'
+import NewBlog from './Components/NewBlog/NewMain.jsx'
+ //import Blog from './Components/Blog/Main.jsx'
 function App() {
   return (
     <div className="App">
@@ -27,6 +27,7 @@ function App() {
 <Users></Users>
 UserListCustomHooks
 <UserListCustomHooks></UserListCustomHooks>
+
 <Exemple1></Exemple1>
 <LinkExemple></LinkExemple>
 <UsersList></UsersList>
@@ -44,8 +45,10 @@ UserListCustomHooks
         />
 <GlobalStyleIndex></GlobalStyleIndex>
 
-*/}
 <Blog></Blog>
+*/}
+<NewBlog></NewBlog>
+
 
     </div>
   );
