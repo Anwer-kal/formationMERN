@@ -14,6 +14,8 @@ function notFound() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Home />} />
+
         <Route path="*" element={<NotFound />} /> {/* Route fallback */}
       </Routes>
     </Router>

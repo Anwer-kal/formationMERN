@@ -43,11 +43,14 @@ const TaskCard = ({ task }) => {
       <h3 style={{ margin: '0', fontSize: '16px', fontWeight: 'bold',marginLeft:'250px',  color:'red'}}>
           {task.priority}
       </h3>
+      <h3 style={{ margin: '0', fontSize: '16px', fontWeight: 'bold',marginRight:'300' }}>
+          {task.name}
+      </h3>
       <h3 style={{ fontSize: '16px', fontWeight: 'bold', textAlign:'center' }}>
           {task.date}
       </h3>
-      <h3 style={{ margin: '0', fontSize: '16px', fontWeight: 'bold' }}>
-          {task.name}
+      <h3 style={{ fontSize: '16px', fontWeight: 'bold', textAlign:'center' }}>
+          {task.task}
       </h3>
       <p style={{ margin: '5px', fontSize: '14px', color: '#555' }}>
           {task.description }
@@ -56,14 +59,13 @@ const TaskCard = ({ task }) => {
     </div>
   );
 };
-
 // Composant principal
 const TaskManagementApp = () => {
   const [tasks, setTasks] = useState([
-    { id: uuidv4(), name: 'Task 1: Buy groceries', columnId: 'todo', description: 'Go and buy vegetables and fruits.',image:'logo192.png',priority:'High' , date:'11/12/205'},
-    { id: uuidv4(), name: 'Task 2: Complete project', columnId: 'todo', description: 'Go and buy vegetables and fruits',image:'logo192.png',priority:'Low'  , date:'11/12/205'},
-    { id: uuidv4(), name: 'Task 3: Call the bank', columnId: 'inProgress', description: 'Go and buy vegetables and fruits',image:'logo192.png',priority:'LOW'  , date:'11/12/205'},
-    { id: uuidv4(), name: 'Task 4: Write blog post', columnId: 'done' , description: 'Go and buy vegetables and fruits',image:'logo192.png',priority:'High'  , date:'11/12/205' },
+    { id: uuidv4(), task: 'Task 1: Buy groceries', name: 'Essra jegham', columnId: 'todo', description: 'Go and buy vegetables and fruits.',image:'logo192.png',priority:'High' , date:'11/12/205'},
+    { id: uuidv4(), task: 'Task 2: Complete project', name: 'Essra jegham', columnId: 'todo', description: 'Go and buy vegetables and fruits',image:'logo192.png',priority:'Low'  , date:'11/12/205'},
+    { id: uuidv4(), task: 'Task 3: Call the bank' , name: 'Essra jegham', columnId: 'inProgress', description: 'Go and buy vegetables and fruits',image:'logo192.png',priority:'LOW'  , date:'11/12/205'},
+    { id: uuidv4(), task: 'Task 4: Write blog post', name: 'Essra jegham', columnId: 'done' , description: 'Go and buy vegetables and fruits',image:'logo192.png',priority:'High'  , date:'11/12/205' },
   ]);
 
   const [taskName, setTaskName] = useState('');

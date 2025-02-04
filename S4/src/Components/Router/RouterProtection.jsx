@@ -24,6 +24,8 @@ function App() {
           }
         />
         <Route path="/" element={<h1>Page publique</h1>} />
+        <Route path="/contact" element={<h1>Page publique</h1>} />
+
       </Routes>
     </Router>
   );

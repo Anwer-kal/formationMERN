@@ -7,6 +7,9 @@ import UserProfile from "./UserProfile";
 import AdminDashboard from "./AdminDashboard";
 import AdminSettings from "./AdminSettings";
 import Unauthorized from "./Unauthorized";
+import Description from "./Description";
+import { useNavigate } from "react-router-dom";
+
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -38,7 +41,7 @@ function Bloc() {
   const handleLogout = () => {
     localStorage.removeItem("isAuthenticated");
     localStorage.removeItem("role");
-    window.location.href = "/login";  // Redirection vers la page de connexion après déconnexion
+    window.location.href = "/login"; // Redirection après déconnexion
   };
 
   // Vérifier si l'utilisateur est authentifié
@@ -62,7 +65,10 @@ function Bloc() {
               <Link to="/user/profile">Profil Utilisateur</Link>
             </Menu.Item>
             <Menu.Item key="adminDashboard">
-              <Link to="/admin/dashboard">Tableau de bord Administrateur</Link>
+              <Link to="/admin/dashboard">Des informations VIP</Link>
+            </Menu.Item>
+            <Menu.Item key="description">
+              <Link to="/admin/description">Description</Link>
             </Menu.Item>
             <Menu.Item key="adminSettings">
               <Link to="/admin/settings">Paramètres Administrateur</Link>
@@ -90,32 +96,16 @@ function Bloc() {
             }}
           >
             <Routes>
-              {/* Routes publiques */}
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/unauthorized" element={<Unauthorized />} />
+  <Route path="/" element={<Home />} />
+  <Route path="/login" element={<Login />} />
+  <Route path="/unauthorized" element={<Unauthorized />} />
+  <Route path="/user/profile" element={<UserProfile />} />
+  <Route path="/admin/dashboard" element={<ProtectedRoute isAdminRequired={true}><AdminDashboard /></ProtectedRoute>} />
+  <Route path="/admin/settings" element={<ProtectedRoute isAdminRequired={true}><AdminSettings /></ProtectedRoute>} />
+  <Route path="/admin/description" element={<ProtectedRoute isAdminRequired={true}><Description /></ProtectedRoute>} />
+  <Route path="/description/:id" element={<Description />} /> {/* ✅ Ajout de la route dynamique */}
+</Routes>
 
-              {/* Routes du bloc Utilisateur */}
-              <Route path="/user/profile" element={<UserProfile />} />
-
-              {/* Routes du bloc Admin avec protection */}
-              <Route
-                path="/admin/dashboard"
-                element={
-                  <ProtectedRoute isAdminRequired={true}>
-                    <AdminDashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/admin/settings"
-                element={
-                  <ProtectedRoute isAdminRequired={true}>
-                    <AdminSettings />
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
           </Content>
           <Footer style={{ textAlign: "center" }}>
             Application React avec Ant Design ©2025

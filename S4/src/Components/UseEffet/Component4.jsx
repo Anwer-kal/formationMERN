@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { LoadingOutlined } from '@ant-design/icons'; 
 function UserList() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -8,15 +8,15 @@ function UserList() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.json())
       .then((data) => {
-        setUsers(data); // Met à jour l'état avec les données récupérées
+        setUsers(data); 
         setLoading(false);
       })
       .catch((error) => console.error('Erreur:', error));
-  }, []); // Tableau vide : s'exécute uniquement au montage du composant
+  }, []); 
 
   return (
     <div>
-      {loading ? <p>Chargement...</p> : 
+      {loading ? <p>< LoadingOutlined /> Loading...</p> : 
         <ul>
           {users.map((user) => (
             <li key={user.id}>{user.name}</li>
