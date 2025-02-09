@@ -5,6 +5,8 @@ import NewHome from "./NewHome";
 import ListeMembreClub from "./ListeMembreClub";
 import FormationsPayantes from "./FormationsPayantes";
 import NewLogin from "./NewLogin";
+import DetaisUn from "./DetaisUn";
+import Contact from "./Contact";
 const { Header, Content, Footer, Sider } = Layout;
 // Composant pour les routes protégées
 function ProtectedRoute({ children, isAdminRequired = false }) {
@@ -55,6 +57,9 @@ function Bloc() {
             <Menu.Item key="liste">
               <Link to="membre"> Liste de memebre</Link>
             </Menu.Item>
+            <Menu.Item key="cont">
+              <Link to="contact"> Contact me </Link>
+            </Menu.Item>
            
             {/*Bouton de déconnexion*/} 
             {isAuthenticated && (
@@ -87,7 +92,8 @@ function Bloc() {
               <Route path="/gestion-profile" element={<FormationsPayantes/>}/>
             
               <Route path="/login" element={< NewLogin/>} />
-              
+             <Route path="/detais/:id" element={<DetaisUn/>}/>
+             <Route path="/contact" element={<Contact/>}/>
             </Routes>
           </Content>
           <Footer style={{ textAlign: "center" }}>

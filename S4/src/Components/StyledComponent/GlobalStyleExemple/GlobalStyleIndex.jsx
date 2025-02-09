@@ -14,7 +14,7 @@ const GlobalStyleIndex = () => {
       <Button onClick={() => setIsDarkMode(!isDarkMode)}>
         Basculer Mode {isDarkMode ? "Clair" : "Sombre"}
       </Button>
-    </ThemeProvider>
+      </ThemeProvider>
   );
 };
 

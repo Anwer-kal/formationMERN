@@ -1,0 +1,98 @@
+/* NewHome.css */
+
+.container {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .header {
+    font-size: 32px;
+    font-weight: bold;
+    color: #aa5f91;
+    margin-bottom: 20px;
+  }
+  
+  .intro {
+    font-size: 18px;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+  
+  .section {
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #84b0dd;
+    margin-bottom: 20px;
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .list-item {
+    background-color: rgb(204, 169, 196);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    width: 80%;
+    transition: transform 0.3s ease;
+  }
+  
+  .list-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    margin: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .button-primary {
+    background-color: #b374bb;
+    color: white;
+    border: none;
+  }
+  
+  .button-primary:hover {
+    background-color: #7f2188;
+  }
+  
+  .button-danger {
+    background-color: #758ed3;
+    color: white;
+    border: none;
+  }
+  
+  .button-danger:hover {
+    background-color: #9c9999;
+  }
+  
+  .contact {
+
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+  
+  }
+  
+  .contact p {
+    color: #416283;
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  

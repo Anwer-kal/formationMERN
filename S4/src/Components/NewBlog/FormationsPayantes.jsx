@@ -1,6 +1,7 @@
 import { useState } from "react";
-
+import {  useNavigate } from "react-router-dom";
 function FormationsPayantes() {
+  const navigate = useNavigate();
   const [formations] = useState([
     { 
       title: "React Avancé", 
@@ -31,6 +32,7 @@ function FormationsPayantes() {
 
     }
   ]);
+
 
   const containerStyle = {
     maxWidth: "600px",
@@ -78,7 +80,10 @@ function FormationsPayantes() {
       <h2 style={titleStyle}>Formations Payantes</h2>
       <ul style={listStyle}>
         {formations.map((formation, index) => (
-          <li key={index} style={itemStyle}>
+          <li key={index} style={itemStyle}
+          onClick={() => navigate(`/detais/${index}`)}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}>
             <strong>{formation.title}</strong>
             <p>{formation.description}</p>
             <p style={{color:"red"}}>{formation.formateur}</p>
