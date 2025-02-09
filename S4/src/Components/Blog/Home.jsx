@@ -21,6 +21,8 @@ function Home() {
   return (
     <div>
       <h1>Bienvenue sur la page d'accueil</h1>
+
+
       {!isAuthenticated ? (
         <div>
           <p>Vous n'êtes pas connecté. Veuillez vous connecter pour accéder aux fonctionnalités protégées.</p>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {LoadingOutlined} from "@ant-design/icons"
 
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -16,7 +17,7 @@ function UserList() {
 
   return (
     <div>
-      {loading ? <p>Chargement...</p> : 
+      {loading ? <LoadingOutlined /> : 
         <ul>
           {users.map((user) => (
             <li key={user.id}>{user.name}</li>

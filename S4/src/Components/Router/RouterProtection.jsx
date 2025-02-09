@@ -10,6 +10,7 @@ function Dashboard() {
 }
 
 function App() {
+
   const isAuthenticated = false; // À remplacer par une logique d'authentification réelle
 
   return (
