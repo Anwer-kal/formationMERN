@@ -3,7 +3,7 @@ import './App.css';
 // import Counter from './Components/UseEffet/Component2.jsx';
 // import Users from './Components/UseEffet/Component3.jsx';
 // import UserList from './Components/UseEffet/Component4.jsx';
-import UserListCustomHooks from './Components/UseEffet/UserList.jsx';
+// import UserListCustomHooks from './Components/UseEffet/UserList.jsx';
 // import Exemple1 from './Components/Router/Router.jsx';
 // import LinkExemple from './Components/Router/Link.jsx'
 // import UsersList from './Components/Router/DynamicRouter.jsx'
@@ -15,12 +15,12 @@ import UserListCustomHooks from './Components/UseEffet/UserList.jsx';
 // import Styled3 from './Components/StyledComponent/Styled3.jsx'
 // import Styled4 from './Components/StyledComponent/Styled4.jsx'
 // import CardComponentExemple from './Components/StyledComponent/DynamicPictureProps/CardComponentExemple.jsx';
-// import GlobalStyleIndex from './Components/StyledComponent/GlobalStyleExemple/GlobalStyleIndex.jsx';
-//  import Blog from './Components/Blog/Main.jsx'
+import GlobalStyleIndex from './Components/StyledComponent/GlobalStyleExemple/GlobalStyleIndex.jsx';
+// import Blog from './Components/Blog/Main.jsx'
 function App() {
   return (
     <div className="App">
-      <UserListCustomHooks/>
+      <GlobalStyleIndex/>
     </div>
   );
 }

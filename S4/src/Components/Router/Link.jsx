@@ -12,11 +12,11 @@ function About() {
 function LinkExemple() {
   return (
     <Router>
-      <nav>
+      <nav>    {/*  (2 balise) kiif el a href  */}  {/*  bch yodhohrou f roots lkoll !!! */}
         <Link to="/">Accueil  | </Link>
         <Link to="/about">À propos</Link>
       </nav>
-      <Routes>
+      <Routes> {/*  (1 balise) chnw elli f wost.ha  */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
       </Routes>

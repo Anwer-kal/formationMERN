@@ -18,7 +18,17 @@ function Login() {
       message.success("Connexion réussie !");
       // Rediriger vers la page d'accueil ou une page protégée
       navigate("/");
-    } else {
+    } 
+    else if (username === "makrem" && password === "makrem") {
+      // Sauvegarder l'état d'authentification dans localStorage
+      localStorage.setItem("isAuthenticated", "true");
+      localStorage.setItem("role", "user"); // ou "user" selon les besoins
+
+      message.success("Connexion réussie !");
+      // Rediriger vers la page d'accueil ou une page protégée
+      navigate("/");
+    } 
+    else {
       message.error("Nom d'utilisateur ou mot de passe incorrect !");
     }
   };

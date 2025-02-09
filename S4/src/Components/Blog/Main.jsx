@@ -7,7 +7,7 @@ import UserProfile from "./UserProfile";
 import AdminDashboard from "./AdminDashboard";
 import AdminSettings from "./AdminSettings";
 import Unauthorized from "./Unauthorized";
-
+import Details from "./Details";
 const { Header, Content, Footer, Sider } = Layout;
 
 // Composant pour les routes protégées
@@ -38,7 +38,8 @@ function Bloc() {
   const handleLogout = () => {
     localStorage.removeItem("isAuthenticated");
     localStorage.removeItem("role");
-    window.location.href = "/login";  // Redirection vers la page de connexion après déconnexion
+    // window.location.href = "/login";  // Redirection vers la page de connexion après déconnexion
+    <Navigate to="/login" />
   };
 
   // Vérifier si l'utilisateur est authentifié
@@ -61,12 +62,12 @@ function Bloc() {
             <Menu.Item key="userProfile">
               <Link to="/user/profile">Profil Utilisateur</Link>
             </Menu.Item>
-            <Menu.Item key="adminDashboard">
+            {/* <Menu.Item key="adminDashboard">
               <Link to="/admin/dashboard">Tableau de bord Administrateur</Link>
-            </Menu.Item>
+            </Menu.Item> */}
             <Menu.Item key="adminSettings">
               <Link to="/admin/settings">Paramètres Administrateur</Link>
-            </Menu.Item>
+            </Menu.Item> 
 
             {/* Bouton de déconnexion */}
             {isAuthenticated && (
@@ -97,7 +98,7 @@ function Bloc() {
 
               {/* Routes du bloc Utilisateur */}
               <Route path="/user/profile" element={<UserProfile />} />
-
+              <Route path="/user/profile/:clubName/details" element={<Details />} />
               {/* Routes du bloc Admin avec protection */}
               <Route
                 path="/admin/dashboard"
@@ -112,6 +113,14 @@ function Bloc() {
                 element={
                   <ProtectedRoute isAdminRequired={true}>
                     <AdminSettings />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/settings/:clubName/details"
+                element={
+                  <ProtectedRoute isAdminRequired={true}>
+                    <Details />
                   </ProtectedRoute>
                 }
               />

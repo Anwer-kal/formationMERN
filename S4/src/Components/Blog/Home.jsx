@@ -1,6 +1,7 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,Route } from "react-router-dom";
 import { Button } from "antd";
+import ContactMe from "./ContactMe.jsx";
 
 function Home() {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ function Home() {
           <Link to="/login">
             <Button type="primary">Se connecter</Button>
           </Link>
+          <ContactMe />
         </div>
       ) : (
         <div>
