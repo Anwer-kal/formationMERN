@@ -9,13 +9,13 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+//pour utlise backend a frontend (public)
 const cors = require('cors');
 app.use(cors());  // Permet les requêtes CORS depuis n'importe quelle origine
 
 // Définir le port
 const PORT = 8000;
-
+//users ce une base donne 
 const users = [
     { id: 1, name: 'Sami', email: 'sami@gmail.com' },
     { id: 2, name: 'Ali', email: 'ali@gmail.com' },
@@ -26,18 +26,20 @@ const users = [
 app.get('/', (req, res) => {
     res.send('Bienvenue sur mon serveur Express ! Anwer');
 });
+//envoye de donne avec type get
 app.get('/users', (req, res) => { 
     res.json(users);
      });
-
+    // ajoute de donne avec post 
      app.post('/users', (req, res) => {
+        console.log(req.body, req.params ,req.query) //cette ligne pour envoye de donne 
         res.send('Nouvel utilisateur créé');
     });
-
+//Mettre à jour des données avec put
     app.put('/users/:id', (req, res) => {
-        res.send(`Utilisateur ${req.params.id} mis à jour`);
+        res.send(`Utilisateur ${req.params.id} mis à jour`);// id ce t'a dire params
     });
-
+// pour supprime (toujour dans params si type delete ou put )
     app.delete('/users/:id', (req, res) => {
         res.send(`Utilisateur ${req.params.id} supprimé`);
     });
@@ -45,7 +47,7 @@ app.get('/users', (req, res) => {
         res.send(`Article ID : ${req.params.id}`);
     });
     app.get('/search', (req, res) => {
-        res.send(`Recherche : ${req.query.q}`);
+        res.json(req.query);
     });
     app.post('/admin', (req, res) => {
         res.send(`admin ajouté : ${req.body.name}`);
@@ -57,6 +59,10 @@ app.get('/users', (req, res) => {
         const email = req.body.email;
         res.send(`Nom: ${name}, Email: ${email}`);
     });
+
+
+//pour ajout de documont avec form-data
+
 
 // Configuration de Multer avec vérification d'extension
 const storage = multer.diskStorage({
