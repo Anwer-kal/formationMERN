@@ -41,3 +41,5 @@ public/static/   # Next.js exported static files
 # Misc
 *.swp
 Thumbs.db
+
+build/
