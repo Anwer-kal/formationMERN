@@ -84,3 +84,13 @@ console.log(decoded)
     res.status(400).json({ error: 'Invalid or expired token', err });
   }
 };
+
+exports.verifytoken = async (req, res) => {
+  try {
+  // If the token is valid, send a success response
+  res.json({ authenticated: true, user: req.user });
+} catch (err) {
+  res.status(400).json({ error: 'Invalid or expired token', err });
+}
+}
+

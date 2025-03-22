@@ -16,30 +16,16 @@ import Cars from './components/CarList';
 const { Header, Content, Footer } = Layout;
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(null); // 'null' means checking authentication state
+  const [isAuthenticated, setIsAuthenticated] = useState(null); // null to indicate loading state
   const navigate = useNavigate();
 
+  // Check session on page load
   useEffect(() => {
     const checkSession = async () => {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        setIsAuthenticated(false);
-        return;
-      }
-      
       try {
-        // Check token validity with backend (use your API endpoint here)
-        const response = await axios.get('http://localhost:5000/auth/verify-token', {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-
-        if (response.data.authenticated) {
-          setIsAuthenticated(true);
-        } else {
-          setIsAuthenticated(false);
-        }
+        const response = await axios.get('http://localhost:5000/auth/check-session', { withCredentials: true });
+        setIsAuthenticated(response.data.authenticated);
       } catch (error) {
-        console.error('Error verifying token', error);
         setIsAuthenticated(false);
       }
     };
@@ -47,17 +33,23 @@ const App = () => {
     checkSession();
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    setIsAuthenticated(false);
-    navigate('/login');
+  // Logout handler
+  const handleLogout = async () => {
+    try {
+      await axios.post('http://localhost:5000/auth/logout', {}, { withCredentials: true });
+      setIsAuthenticated(false);
+      navigate('/login');
+    } catch (error) {
+      console.error('Logout failed', error);
+    }
   };
 
+  // Login handler
   const handleLogin = () => {
     setIsAuthenticated(true);
   };
 
-  // Show loading spinner while checking authentication state
+  // Show a loading spinner while checking session
   if (isAuthenticated === null) {
     return (
       <Layout style={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
