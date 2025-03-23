@@ -11,6 +11,7 @@ import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
 import Home from './components/Home';
 import Cars from './components/CarList';
+import CarNumber from './components/CarNumber'
 
 const { Header, Content, Footer } = Layout;
 
@@ -57,6 +58,7 @@ const App = () => {
           </Routes>
         </div>
       </Content>
+      <CarNumber></CarNumber>
       <Footer style={{ textAlign: 'center' }}>MyApp ©2025 Created with Ant Design</Footer>
     </Layout>
   );

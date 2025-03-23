@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 import CarsContext from '../context/CarsContext';
 
-const PrivacyPage = () => {
+const CarNumber = () => {
   const { cars } = useContext(CarsContext); // Access cars directly from the context
+  console.log(cars)
   return (
     <div>
       <h1>Privacy Policy</h1>
-      <p>Private Number of cars: {cars.length}</p> {/* Display the number of cars dynamically */}
+      <p>Number of cars: {cars.length}</p> {/* Display the number of cars dynamically */}
     </div>
   );
 };
 
-export default PrivacyPage;
+export default CarNumber;

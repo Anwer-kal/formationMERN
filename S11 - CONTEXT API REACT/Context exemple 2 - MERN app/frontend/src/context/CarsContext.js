@@ -18,7 +18,7 @@ export const CarsProvider = ({ children }) => {
   const addCar = async (carData) => {
     try {
       const newCar = await createCar(carData);
-      setCars([...cars, newCar]);
+      fetchCars()
     } catch (error) {
       console.error('Error adding car:', error);
     }
