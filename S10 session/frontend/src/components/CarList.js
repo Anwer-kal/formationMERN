@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button, Modal, Form, Input, message } from 'antd';
-import { PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
-import { getCars, createCar, updateCar, deleteCar } from '../api';
+import { Card, Button, Modal, Form, Input, message, Tag } from 'antd';
+import { PlusOutlined, EditOutlined, DeleteOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { getCars, createCar, updateCar, deleteCar, buyCar } from '../api';
+
 
 const CarList = () => {
   const [cars, setCars] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
+  const [isBuyModalVisible, setIsBuyModalVisible] = useState(false); // For Buy Car modal
   const [currentCar, setCurrentCar] = useState(null);
   const [form] = Form.useForm();
 
@@ -71,6 +73,31 @@ const CarList = () => {
     }
   };
 
+  const handleBuyCar = (car) => {
+    setCurrentCar(car); // Set the current car for purchase
+    setIsBuyModalVisible(true); // Open the Buy Car modal
+  };
+
+  const handleBuyFormSubmit = async (values) => {
+    try {
+      console.log(values)
+      // Call your API to handle the purchase
+      const response =      await buyCar(
+       currentCar._id,
+        values.name,
+      values.email,
+      )
+
+      // Update the car's availability in the UI
+      setCars(cars.map(car => (car._id === currentCar._id ? { ...car, available: false } : car)));
+      message.success('Car purchased successfully');
+      setIsBuyModalVisible(false);
+    } catch (error) {
+      console.error('Error purchasing car:', error);
+      message.error('Failed to purchase car');
+    }
+  };
+
   return (
     <div>
       <Button
@@ -91,9 +118,25 @@ const CarList = () => {
             actions={[
               <EditOutlined key="edit" onClick={() => handleEditCar(car)} />,
               <DeleteOutlined key="delete" onClick={() => handleDeleteCar(car._id)} />,
+              <ShoppingCartOutlined
+                key="buy"
+                onClick={() => handleBuyCar(car)}
+                disabled={!car.available} // Disable if car is not available
+              />,
             ]}
           >
-            <Card.Meta title={`${car.make} ${car.model}`} description={`Year: ${car.year} | Price: $${car.price}`} />
+            <Card.Meta
+              title={`${car.make} ${car.model}`}
+              description={
+                <>
+                  <p>Year: {car.year}</p>
+                  <p>Price: ${car.price}</p>
+                  <Tag color={car.available ? 'green' : 'red'}>
+                    {car.available ? 'Available' : 'Sold'}
+                  </Tag>
+                </>
+              }
+            />
           </Card>
         ))}
       </div>
@@ -150,6 +193,39 @@ const CarList = () => {
             <Button onClick={() => setIsModalVisible(false)}>Cancel</Button>
             <Button type="primary" htmlType="submit">
               {isEditMode ? 'Update' : 'Add'}
+            </Button>
+          </div>
+        </Form>
+      </Modal>
+
+      {/* Modal for Buy Car */}
+      <Modal
+        title={`Buy ${currentCar?.make} ${currentCar?.model}`}
+        visible={isBuyModalVisible}
+        onCancel={() => setIsBuyModalVisible(false)}
+        footer={null}
+      >
+        <Form onFinish={handleBuyFormSubmit} layout="vertical">
+          <Form.Item
+            label="Name"
+            name="name"
+            rules={[{ required: true, message: 'Please enter your name' }]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            label="Email"
+            name="email"
+            rules={[{ required: true, message: 'Please enter your email' }]}
+          >
+            <Input type="email" />
+          </Form.Item>
+
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Button onClick={() => setIsBuyModalVisible(false)}>Cancel</Button>
+            <Button type="primary" htmlType="submit">
+              Buy Now
             </Button>
           </div>
         </Form>

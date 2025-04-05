@@ -41,3 +41,13 @@ export const deleteCar = async (id) => {
   const response = await axiosInstance.delete(`/cars/${id}`);
   return response.data;
 };
+
+// Buy a car
+export const buyCar = async (carId, name, email) => {
+  const response = await axiosInstance.post('/cars/buy', {
+    carId,
+    name,
+    email,
+  });
+  return response.data;
+};
